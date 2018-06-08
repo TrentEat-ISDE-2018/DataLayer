@@ -30,7 +30,7 @@ public class GoogleMapsHandler {
 			return null;
 		}
 		
-		return makeResponse(googleMaps);
+		return makeResponse(googleMaps, location);
 	}
 
 	public static boolean acceptKey(String key) {
@@ -66,8 +66,9 @@ public class GoogleMapsHandler {
 		return googleMaps;
 	}
 	
-	private static MapsResponse makeResponse(GoogleMaps googleMaps) {
+	private static MapsResponse makeResponse(GoogleMaps googleMaps, String location) {
 		MapsResponse response = new MapsResponse();
+		response.setLocation(location);
 		response.setLat(googleMaps.getResults().get(0).getGeometry().getLocation().getLat());
 		response.setLon(googleMaps.getResults().get(0).getGeometry().getLocation().getLng());
 		return response;
