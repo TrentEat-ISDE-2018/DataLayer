@@ -37,7 +37,7 @@ public class OpenWeatherMapHandler {
 	}
 
 	public static boolean acceptKey(String key) {
-		// TODO Auto-generated method stub
+		if(key.equals(apiKey)) return true;
 		return false;
 	}
 	
