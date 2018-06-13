@@ -70,7 +70,10 @@ public class AgriturMapper {
 				a.setNum_for_sleep(null);
 			}
 			//add phone as string
-			a.setPhone("0"+pref+" "+tel);
+			String zero = "";
+			//adding zero only if it's start with 0
+			if(pref.startsWith("4")) zero = "0";
+			a.setPhone(zero+pref+" "+tel);
 			//add website or null
 			if(sito.equals("")) {
 				a.setWebsite(null);
@@ -99,6 +102,7 @@ public class AgriturMapper {
 		ObjectMapper mapper = new ObjectMapper();		
 		String outputString = mapper.writeValueAsString(a);	
 		System.out.println(outputString);
+
 	}
 }
 
